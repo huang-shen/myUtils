@@ -1,4 +1,4 @@
-package com.huang.utils;
+package com.huang.utils.code;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
@@ -6,6 +6,7 @@ import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.client.j2se.MatrixToImageWriter;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
+import com.huang.utils.security.Base64;
 import org.apache.commons.codec.binary.Base64OutputStream;
 
 import javax.imageio.ImageIO;
@@ -24,7 +25,7 @@ import java.util.Map;
  * @create 2021-10-14 7:26
  */
 public class QRCodeUtil {
-     // base64编码集
+    // base64编码集
     public static final String CHARSET = "UTF-8";
     // 二维码高度
     public static final int HEIGHT = 150;
@@ -36,29 +37,26 @@ public class QRCodeUtil {
     private static final String FORMAT = "jpg";
 
 
-
-
     /**
      * 生成二维码
-     * @explain
+     *
      * @param data 字符串（二维码实际内容）
      * @return
+     * @explain
      */
     public static BufferedImage createQRCode(String data) {
-
-
         return createQRCode(data, WIDTH, HEIGHT, MARGIN);
-
     }
 
     /**
      * 生成二维码
-     * @explain
-     * @param data 字符串（二维码实际内容）
-     * @param width 宽
+     *
+     * @param data   字符串（二维码实际内容）
+     * @param width  宽
      * @param height 高
      * @param margin 外边距，单位：像素，只能为整数，否则：报错
      * @return BufferedImage
+     * @explain
      */
     public static BufferedImage createQRCode(String data, int width, int height, int margin) {
         BitMatrix matrix;
@@ -119,10 +117,11 @@ public class QRCodeUtil {
 
     /**
      * 生成带logo的二维码
-     * @explain 宽、高、外边距使用定义好的值
-     * @param data 字符串（二维码实际内容）
+     *
+     * @param data     字符串（二维码实际内容）
      * @param logoFile logo图片文件对象
      * @return BufferedImage
+     * @explain 宽、高、外边距使用定义好的值
      */
     public static BufferedImage createQRCodeWithLogo(String data, File logoFile) {
         return createQRCodeWithLogo(data, WIDTH, HEIGHT, MARGIN, logoFile);
@@ -130,13 +129,14 @@ public class QRCodeUtil {
 
     /**
      * 生成带logo的二维码
-     * @explain 自定义二维码的宽和高
-     * @param data 字符串（二维码实际内容）
-     * @param width 宽
-     * @param height 高
+     *
+     * @param data     字符串（二维码实际内容）
+     * @param width    宽
+     * @param height   高
      * @param logoFile logo图片文件对象
      * @return BufferedImage
      * @return
+     * @explain 自定义二维码的宽和高
      */
     public static BufferedImage createQRCodeWithLogo(String data, int width, int height, int margin, File logoFile) {
         BufferedImage combined = null;
@@ -157,12 +157,12 @@ public class QRCodeUtil {
     }
 
 
-
     /**
      * 将二维码信息写入文件中
-     * @explain
+     *
      * @param image
-     * @param file 用于存储二维码的文件对象
+     * @param file  用于存储二维码的文件对象
+     * @explain
      */
     public static void writeToFile(BufferedImage image, File file) {
         try {
@@ -174,9 +174,10 @@ public class QRCodeUtil {
 
     /**
      * 将二维码信息写入流中
-     * @explain
+     *
      * @param image
-     * @param  stream 文件
+     * @param stream 文件
+     * @explain
      */
     public static void writeToStream(BufferedImage image, OutputStream stream) {
         try {
@@ -188,10 +189,11 @@ public class QRCodeUtil {
 
     /**
      * 获取base64格式的二维码
-     * @explain 图片类型：jpg
-     *  展示：<img src="data:image/jpeg;base64,base64Str"/>
+     *
      * @param image
      * @return base64
+     * @explain 图片类型：jpg
+     * 展示：<img src="data:image/jpeg;base64,base64Str"/>
      */
     public static String writeToBase64(BufferedImage image) {
         String base64Str;
@@ -204,15 +206,16 @@ public class QRCodeUtil {
         } catch (Exception e) {
             throw new RuntimeException(e.getMessage(), e);
         }
-        return "data:image/jpg;base64,"+base64Str;
+        return "data:image/jpg;base64," + base64Str;
     }
 
 
     /**
      * 将base64转成图片
-     * @explain
+     *
      * @param base64 base64格式图片
-     * @param file 用于存储二维码的文件对象
+     * @param file   用于存储二维码的文件对象
+     * @explain
      */
     public static void base64ToImage(String base64, File file) {
         FileOutputStream os;

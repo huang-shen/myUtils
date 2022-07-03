@@ -1,4 +1,4 @@
-package com.huang.utils;
+package com.huang.utils.security;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;

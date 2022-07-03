@@ -1,4 +1,4 @@
-package com.huang.utils;
+package com.huang.utils.check;
 
 
 import org.apache.commons.lang3.StringUtils;

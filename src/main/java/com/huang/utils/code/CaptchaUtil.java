@@ -1,4 +1,4 @@
-package com.huang.utils;
+package com.huang.utils.code;
 
 import com.huang.utils.entity.to.CaptchaTO;
 import com.wf.captcha.*;

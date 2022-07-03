@@ -1,4 +1,4 @@
-package com.huang.utils;
+package com.huang.utils.check;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

@@ -1,4 +1,4 @@
-package com.huang.utils;
+package com.huang.utils.security;
 
 /**
  * Base64 工具类

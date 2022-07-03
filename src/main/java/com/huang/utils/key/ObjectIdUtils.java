@@ -1,4 +1,4 @@
-package com.huang.utils;
+package com.huang.utils.key;
 
 /**
  * @author HuangShen

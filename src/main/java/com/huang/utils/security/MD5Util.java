@@ -1,4 +1,4 @@
-package com.huang.utils;
+package com.huang.utils.security;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
